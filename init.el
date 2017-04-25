@@ -58,13 +58,13 @@
 (define-globalized-minor-mode my-global-fci-mode fci-mode turn-on-fci-mode)
 (my-global-fci-mode 1)
 (setq fci-rule-width 2)
-(setq fci-rule-color "yellow")
+(setq fci-rule-color "red")
 (setq fci-rule-column 80)
 
 ; highlight current line
-(require 'hl-line)
-(global-hl-line-mode t)
-(set-face-background hl-line-face "gray18")
+; (require 'hl-line)
+; (global-hl-line-mode t)
+; (set-face-background hl-line-face "gray1")
 
 ;;(keyboard-translate ?\C-h ?\C-?)
 (defalias 'yes-or-no-p 'y-or-n-p)
