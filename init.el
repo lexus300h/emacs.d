@@ -31,12 +31,19 @@
     (setq eshell-path-env path-from-shell) ; for eshell users
     (setq exec-path (split-string path-from-shell path-separator))))
 
+;; add load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; set exec path
 (when window-system (set-exec-path-from-shell-PATH))
 
+;; set go env var
 (setenv "GOPATH" "/home/monkboy/Workspace/Go")
 
+;; enable golang auto complete
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; enable syntax checking with Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
