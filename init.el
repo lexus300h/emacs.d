@@ -47,3 +47,6 @@
 
 ;; enable syntax checking with Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; add hook gofmt before save
+(add-hook 'before-save-hook #'gofmt-before-save) 
