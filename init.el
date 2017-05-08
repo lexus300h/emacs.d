@@ -55,10 +55,6 @@
 ;; add hook gofmt before save
 (add-hook 'before-save-hook #'gofmt-before-save) 
 
-;;yasnippet config
-(require 'yasnippet)
-(yas-global-mode 1)
-
 (auto-insert-mode) ;;; Adds hook to find-files-hook
 (setq auto-insert-directory "~/.emacs.d/templates/") ;;; Or use custom, *NOTE* Trailing slash important
 (setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
@@ -70,6 +66,27 @@
             )
            auto-insert-alist))
 ;; (define-auto-insert "\.go" "golangTemplate.go")
+
+;;yasnippet config
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(defadvice auto-insert  (around yasnippet-expand-after-auto-insert activate)
+  "expand auto-inserted content as yasnippet templete,
+  so that we could use yasnippet in autoinsert mode"
+  (let ((is-new-file (and (not buffer-read-only)
+                          (or (eq this-command 'auto-insert)
+                              (and auto-insert (bobp) (eobp))))))
+    ad-do-it
+    (let ((old-point-max (point-max)))
+      (when is-new-file
+        (goto-char old-point-max)
+        (yas-expand-snippet (buffer-substring-no-properties (point-min) (point-max)))
+        (delete-region (point-min) old-point-max)
+        )
+      )
+    )
+  )
 
 ;; ==================== fill-column-indicator
 ;; 显示80行的标线
