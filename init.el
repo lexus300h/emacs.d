@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (browse-kill-ring tabbar flycheck auto-complete go-mode))))
+    (yasnippet browse-kill-ring tabbar flycheck auto-complete go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -51,6 +51,15 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; add hook gofmt before save
 (add-hook 'before-save-hook #'gofmt-before-save) 
+
+;;yasnippet config
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(auto-insert-mode) ;;; Adds hook to find-files-hook
+(setq auto-insert-directory "~/.emacs.d/templates/") ;;; Or use custom, *NOTE* Trailing slash important
+(setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
+(define-auto-insert "\.go" "golangTemplate.go")
 
 ;; ==================== fill-column-indicator
 ;; 显示80行的标线
