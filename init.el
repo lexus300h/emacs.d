@@ -6,8 +6,11 @@
 (package-initialize)
 
 (require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;   '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
