@@ -62,7 +62,14 @@
 (auto-insert-mode) ;;; Adds hook to find-files-hook
 (setq auto-insert-directory "~/.emacs.d/templates/") ;;; Or use custom, *NOTE* Trailing slash important
 (setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
-(define-auto-insert "\.go" "golangTemplate.go")
+(setq auto-insert-alist
+      (append '((f90-mode . "Template.f90")
+            (python-mode . "Template.py")
+            (c-mode . "Template.c")
+            (go-mode . "golangTemplate.go")
+            )
+           auto-insert-alist))
+;; (define-auto-insert "\.go" "golangTemplate.go")
 
 ;; ==================== fill-column-indicator
 ;; 显示80行的标线
