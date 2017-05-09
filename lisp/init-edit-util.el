@@ -24,6 +24,13 @@
 
 ;;; Code:
 
+;; highligth current line
+(global-hl-line-mode t)
+(set-face-background 'hl-line "#3e4446")
+(set-face-foreground 'highlight nil)
+
+;; line number
+(global-linum-mode t)
 ;; ==================== fill-column-indicator
 ;; 显示80行的标线
 (require 'fill-column-indicator)

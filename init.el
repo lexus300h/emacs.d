@@ -1,6 +1,7 @@
 ;; init.el
 ;; 把目录lisp/添加到搜索路径中去
 
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -20,9 +21,6 @@
     (setq eshell-path-env path-from-shell) ; for eshell users
     (setq exec-path (split-string path-from-shell path-separator))))
 
-;; add load path
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 ;; set exec path
 (when window-system (set-exec-path-from-shell-PATH))
 
@@ -32,3 +30,4 @@
 (require 'init-auto-insert)
 (require 'init-edit-util)
 (require 'init-golang)
+(require 'init-erc) 
