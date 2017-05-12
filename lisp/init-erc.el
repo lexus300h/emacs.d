@@ -24,12 +24,11 @@
 
 ;;; Code:
 
-(require 'erc) 
- ;;; Sample ERC configuration
+;;; (require 'erc) 
+;;; Sample ERC configuration
      
 ;; Load authentication info from an external source.  Put sensitive
 ;; passwords and the like in here.
-(load "~/.emacs.d/lisp/.erc-auth")
 
 ;; This is an example of how to make a new command.  Type "/uptime" to
 ;; use it.
@@ -62,7 +61,7 @@ stuff, to the current ERC buffer."
 ;; people on those networks.
 (global-set-key "\C-ceb" (lambda () (interactive)
                            (erc :server "localhost" :port "6667"
-                                :nick "MYNICK")))
+                                :nick "monkboy")))
 
 ;; Make C-c RET (or C-c C-RET) send messages instead of RET.  This has
 ;; been commented out to avoid confusing new users.
@@ -95,6 +94,7 @@ stuff, to the current ERC buffer."
 
 (setq erc-log-channels-directory "~/.erc/logs/")
 (setq erc-save-buffer-on-part t)
+(setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
 (provide 'init-erc)
 ;;; init-erc.el ends here
