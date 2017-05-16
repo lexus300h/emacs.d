@@ -72,7 +72,8 @@
 (setq font-lock-verbose t)
 ;;(set-default-font "Bitstream Vera Sans Mono-12")
 (global-font-lock-mode t)
-(tool-bar-mode -1)
+(if (functionp 'tool-bar-mode)
+    (tool-bar-mode -1))
 (setq column-number-mode t)
 (setq display-battery-mode t)
 (setq size-indication-mode t)
@@ -109,7 +110,6 @@
 (setq display-time-use-mail-icon t)
 (setq display-time-interval 10)
  
-(tool-bar-mode -1)
 (customize-set-variable 'scroll-bar-mode 'right)
  
  
