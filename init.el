@@ -11,6 +11,10 @@
 (add-to-list
     'load-path 
     (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path
+    (expand-file-name "ecb" user-emacs-directory))
+(add-to-list 'load-path
+    (expand-file-name "cscope-15.8b" user-emacs-directory))
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
@@ -31,3 +35,6 @@
 (require 'init-edit-util)
 (require 'init-golang)
 (require 'init-erc) 
+(require 'ecb)
+(require 'xcscope)
+
